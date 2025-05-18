@@ -1,0 +1,38 @@
+package com.edutechinnovators.usuario_service.model;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.Date;
+
+@Entity
+@Table(name = "usuario")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Usuario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(unique = true, length = 13, nullable = false)
+    private String run;
+
+    @Column(nullable = false)
+    private String nombre;
+
+    @Column(nullable = false)
+    private String apellido;
+
+    @Column(nullable = true)
+    private Date fechaNacimiento;
+
+    @Column(nullable = false)
+    private String correo;
+
+    private String password;
+
+    private String rol; // ADMINISTRADOR, GERENTE_CURSOS, INSTRUCTOR, ESTUDIANTE
+}
